@@ -21,7 +21,7 @@ Project ini dibuat sebagai bagian dari Capstone Project Hacktiv8 dengan kategori
 
 # 1. Clone repository
 ```bash
-git clone https://github.com/username/simple-blog-cms.git
+git clone https://github.com/karinasekar22/cms_mini.git
 cd simple-blog-cms
 ```
 
