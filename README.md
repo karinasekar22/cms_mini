@@ -36,19 +36,22 @@ npm install && npm run dev
 cp .env.example .env
 ```
 
+
+# 4. Konfigurasi database di file .env, lalu jalankan migrasi
 ```bash
-# 5. Konfigurasi database di file .env, lalu jalankan migrasi
 php artisan migrate
 ```
 
+
+# 5. (Opsional) Publish konfigurasi Spatie Permission
 ```bash
-# 6. (Opsional) Publish konfigurasi Spatie Permission
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 php artisan migrate
 ```
 
+
+# 6. Jalankan aplikasi
 ```bash
-# 7. Jalankan aplikasi
 php artisan serve
 ```
 Aplikasi akan berjalan di http://127.0.0.1:8000.
