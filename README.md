@@ -17,35 +17,53 @@ Project ini dibuat sebagai bagian dari Capstone Project Hacktiv8 dengan kategori
 - **Dashboard sederhana** dengan Blade untuk mengelola data
 
   
-## Install
+## Installation
 
-```sh
-
-```bash
 # 1. Clone repository
+```bash
 git clone https://github.com/username/simple-blog-cms.git
 cd simple-blog-cms
+```
 
 # 2. Install dependencies
+```bash
 composer install
 npm install && npm run dev
+```
 
 # 3. Copy environment file
+```bash
 cp .env.example .env
+```
 
-# 4. Generate app key
-php artisan key:generate
-
+```bash
 # 5. Konfigurasi database di file .env, lalu jalankan migrasi
-php artisan migrate --seed
+php artisan migrate
+```
 
+```bash
 # 6. (Opsional) Publish konfigurasi Spatie Permission
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 php artisan migrate
+```
 
+```bash
 # 7. Jalankan aplikasi
 php artisan serve
 ```
+Aplikasi akan berjalan di http://127.0.0.1:8000.
+
+##🤖 AI Support Explanation
+
+Selama proses pengembangan, AI digunakan untuk:
+
+- Membantu menyusun struktur project dan best practice Laravel.
+
+- Menjelaskan implementasi CRUD & role permission dengan Spatie.
+
+- Membuat dokumentasi README.md dengan format yang sesuai aturan.
+
+AI hanya digunakan pada fase pengembangan dan dokumentasi, tidak termasuk dalam produk akhir.
 
 ## Author
 
@@ -53,10 +71,6 @@ php artisan serve
 
 * Github: [@karinasekar22](https://github.com/karinasekar22)
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+_This README was generated with ❤️
