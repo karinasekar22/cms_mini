@@ -56,7 +56,7 @@ php artisan serve
 ```
 Aplikasi akan berjalan di http://127.0.0.1:8000.
 
-##🤖 AI Support Explanation
+## 🤖 AI Support Explanation
 
 Selama proses pengembangan, AI digunakan untuk:
 
@@ -74,6 +74,3 @@ AI hanya digunakan pada fase pengembangan dan dokumentasi, tidak termasuk dalam 
 
 * Github: [@karinasekar22](https://github.com/karinasekar22)
 
-
-***
-_This README was generated with ❤️
