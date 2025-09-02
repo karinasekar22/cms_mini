@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Edit Tulisan
+            Buat Tulisan
         </h2>
     </x-slot>
     <div class="py-12">
@@ -11,46 +11,41 @@
                     <section>
                         <header>
                             <h2 class="text-lg font-medium text-gray-900">
-                                Edit Data Tulisan
+                                Tambah Article
                             </h2>
 
                             <p class="mt-1 text-sm text-gray-600">
-                                Silakan melakukan perubahan data
+                                Silahkan membuat artikel baru
                             </p>
                         </header>
 
-                        <form method="post" action="{{ route('member.blogs.update', ['post' => $data->id]) }}"
-                            class="mt-6 space-y-6" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('member.blogs.store') }}" class="mt-6 space-y-6"
+                            enctype="multipart/form-data">
                             @csrf
-                            @method('put')
                             <div>
                                 <x-input-label for="title" value="Title" />
                                 <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
-                                    value="{{ old('title', $data->title)  }}" />
+                                    value="{{ old('title')  }}" />
                             </div>
                             <div>
                                 <x-input-label for="description" value="Description" />
                                 <x-text-input id="description" name="description" type="text" class="mt-1 block w-full"
-                                    value="{{ old('description', $data->description)  }}" />
+                                    value="{{ old('description')  }}" />
                             </div>
                             <div>
-                                @isset($data->thumbnail)
-                                    <img src="{{ asset(getenv('CUSTOM_THUMBNAIL_LOCATION') . '/' . $data->thumbnail) }}"
-                                        alt="" class="border-gray-300 rounded-md max-w-40 p-2" />
-
-                                @endisset
                                 <x-input-label for="form_input" value="Thumbnail" />
                                 <input type="file" class="w-full border border-gray-300 rounded-sm" name="thumbnail" />
                             </div>
                             <div>
-                                <x-textarea-trix value="{!! old('content', $data->content) !!}" id="x"
-                                    name="content"></x-textarea-trix>
+                                <x-textarea-trix value="{!! old('content') !!}" id="x" name="content"></x-textarea-trix>
                             </div>
                             <div>
                                 <x-select name="status">
-                                    <option value="draft" {{ (old('status', $data->status) == 'draft') ? 'selected' : ''   }}>Simpan sebagai draft
+                                    <option value="draft" {{ (old('status') == 'draft') ? 'selected' : ''   }}>Simpan
+                                        sebagai draft
                                     </option>
-                                    <option value="publish" {{ (old('status', $data->status) == 'publish') ? 'selected' : ''   }}>Publish</option>
+                                    <option value="publish" {{ (old('status') == 'publish') ? 'selected' : ''   }}>Publish
+                                    </option>
                                 </x-select>
                             </div>
                             <div class="flex items-center gap-4">

@@ -9,11 +9,16 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -24,7 +29,24 @@
         @isset($header)
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
+
+                    <div class="block md:flex justify-between">
+                        <div>{{ $header }}</div>
+                        <div>
+                            @isset($headerRight)
+                                {{ $headerRight }}
+                            @endisset
+                        </div>
+                    </div>
+
+                    @session('success')
+                        <div class="mx-w-7xl mx-auto bg-green-600 p-3 mt-3 text-white rounded-md">
+                            <ul>
+                                {{ session('success') }}
+                            </ul>
+                        </div>
+                    @endsession
+
                 </div>
             </header>
         @endisset

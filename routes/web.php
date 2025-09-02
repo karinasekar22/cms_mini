@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\Member\BlogController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
@@ -8,9 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -55,13 +54,17 @@ Route::middleware('auth')->group(function () {
 
 
     //blog route
-    Route::get('/member/blogs', [BlogController::class, 'index']);
-    Route::get('/member/blogs/{post}/edit', [BlogController::class, 'edit']);
 
     Route::resource('/member/blogs', BlogController::class)->names([
         'index' => 'member.blogs.index',
         'edit' => 'member.blogs.edit',
-    ]);
+        'update' => 'member.blogs.update',
+        'create' => 'member.blogs.create',
+        'store' => 'member.blogs.store',
+        'destroy' => 'member.blogs.destroy'
+    ])->parameters([
+                'blogs' => 'post'
+            ]);
 });
 
 require __DIR__ . '/auth.php';
