@@ -43,9 +43,10 @@
                                 <input type="file" class="w-full border border-gray-300 rounded-sm" name="thumbnail" />
                             </div>
                             <div>
-                                <x-textarea-trix value="{!! old('content', $data->content) !!}" id="x"
-                                    name="content"></x-textarea-trix>
+                                <x-textarea name="content" id="content"
+                                    value="{!! old('content', $data->content) !!}"></x-textarea>
                             </div>
+
                             <div>
                                 <x-select name="status">
                                     <option value="draft" {{ (old('status', $data->status) == 'draft') ? 'selected' : ''   }}>Simpan sebagai draft
@@ -67,4 +68,7 @@
         </div>
 
     </div>
+
+
+
 </x-app-layout>

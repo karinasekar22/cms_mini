@@ -54,10 +54,10 @@
                                     <td class="border px-6 py-4 text-center">
                                         <a href='{{ route("member.blogs.edit", ['post' => $value->id]) }}'
                                             class="bg-cyan-600 text-sm text-white rounded-md px-3 py-2 hover:bg-cyan-700">Edit</a>
-                                        <a href=''
+                                        <a target="_blank" href="{{ route('blog-detail', $value->slug) }}"
                                             class="bg-slate-600 text-sm text-white rounded-md px-3 py-2 hover:bg-slate-700">Lihat</a>
-                                        <form action="" class="inline"
-                                            onsubmit="return confirm('Yakin akan menghapus article ini?')" method="post"
+                                        <form class="inline" onsubmit="return confirm('Yakin akan menghapus article ini?')"
+                                            method="post"
                                             action="{{ route('member.blogs.destroy', ['post' => $value->id]) }}">
                                             @csrf
                                             @method('delete')

@@ -1,6 +1,6 @@
-@props(['title', 'subtitle', 'date', 'user', 'description', 'link'])
+@props(['title', 'date', 'user', 'description', 'link'])
 <div class="post-preview">
-    <a href="post.html">
+    <a href="{{ $link }}">
         <h2 class="post-title">
             {{ $title }}
             <h3 class="post-subtitle">
@@ -11,7 +11,7 @@
     </a>
     <p class="post-meta">
         Posted by
-        <a href="#!">{{ $user }}</a>
+        <a href="#">{{ $user }}</a>
         on {{ $date }}
     </p>
 </div>
